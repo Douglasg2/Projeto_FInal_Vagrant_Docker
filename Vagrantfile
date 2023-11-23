@@ -1,28 +1,25 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/focal64"
-  
-    config.vm.network "private_network", type: "dhcp"
-    config.vm.network "forwarded_port", guest: 80, host: 8080
-  
-    config.vm.provider "virtualbox" do |vb|
+  config.vm.define "vm" do |vm|
+    vm.vm.box = "ubuntu/focal64"
+    vm.vm.hostname = "vm"
+
+    vm.vm.network "private_network", type: "private_network", ip: "192.168.56.10"
+    vm.vm.network "forwarded_port", guest: 80, host: 8080
+
+    vm.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       vb.cpus = 2
     end
-  
-    config.vm.provision "shell", inline: <<-SHELL
-      sudo apt-get update
-      sudo apt-get install -y apache2
-    SHELL
-  
-    config.vm.synced_folder "./var/www/html", "/var/www/html"
-  
-    config.vm.provision "docker" do |docker|
-      docker.run "service-1", image: "nome-da-imagem-1"
-      docker.run "service-2", image: "nome-da-imagem-2"
-      docker.run "service-3", image: "nome-da-imagem-3"
-      docker.run "service-4", image: "nome-da-imagem-4"
-      docker.run "service-5", image: "nome-da-imagem-5"
+
+    vm.vm.synced_folder "./var/www/html", "/var/www/html"
+
+
+    vm.vm.provision "docker" do |docker|
+      docker.run "shell", image: "provision/dhcp.sh"
+      docker.run "shell", image: "provision/dns.sh"
+      docker.run "shell", image: "provision/ftp.sh"
+      docker.run "shell", image: "provision/nfs.sh"
+      docker.run "shell", image: "provision/web.sh"
     end
   end
-
-  #d
+end
