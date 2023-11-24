@@ -8,7 +8,13 @@ O objetivo deste projeto é criar uma infraestrutura de rede empresarial utiliza
 
 ## Topologia de Rede:
 
-A topologia da rede será implementada usando máquinas virtuais gerenciadas pelo Vagrant e contêineres Docker.
+Nesse projeto será utilizado uma VM contendo 5 containers, cada container será configurado com a especificação pedida, ou seja:
+
+- 1ºContainer configurado com um servidor DHCP
+- 2ºContainer com um servidor DNS
+- 3ºContainer hospedando um servidor apache 
+- 4ºContainer com um servidor FTP
+- 5ºContainer configurado com um servidor NFS
 
 ## Requisitos
 
