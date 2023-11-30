@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     end
 
     vmgateway.vm.network "private_network", type: "private_network", ip: "192.168.56.10"
-    vmgateway.vm.network "forwarded_port", guest: 81, host: 8080
+    vmgateway.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1", host_port: 2222
 
     vmgateway.vm.synced_folder "/var/www/html", "/var/www/html"
 
