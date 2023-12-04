@@ -12,12 +12,12 @@ Vagrant.configure("2") do |config|
     end
 
     vmgateway.vm.network "private_network", type: "private_network", ip: "192.168.56.10"
-    vmgateway.vm.network "forwarded_port", guest: 22, host: 2200, host_ip: "127.0.0.1", host_port: 2222
+    vmgateway.vm.network "forwarded_port", guest: 22, host: 1234, host_ip: "127.0.0.1", host_port: 2222
 
     vmgateway.vm.synced_folder "/var/www/html", "/var/www/html"
 
     vmgateway.vm.provision "docker" do |docker|
-      vmgateway.vm.provision "shell", path: "provision/dhcp.sh"
+      vmgateway.vm.provision "shell", path: "provision/dhcpd.sh"
       vmgateway.vm.provision "shell", path: "provision/dns.sh"
       vmgateway.vm.provision "shell", path: "provision/ftp.sh"
       vmgateway.vm.provision "shell", path: "provision/nfs.sh"
