@@ -2,7 +2,7 @@
 
 Este é um projeto de implantação e gerenciamento de uma rede empresarial, utilizando virtualização com Vagrant e Docker e serviços como DHCP, DNS, Web, FTP e NFS, por meio do Sistema Linux.
 
-## Objetivo:
+## Objetivo
 
 O objetivo deste projeto é criar uma infraestrutura de rede empresarial utilizando Vagrant para gerenciar máquinas virtuais e Docker para implantar aplicativos em contêineres. Os serviços essenciais, como DHCP, DNS, Web, FTP, NFS, serão configurados para funcionar de maneira eficiente e integrada.
 
@@ -28,34 +28,50 @@ Link: <a>https://github.com/Douglasg2/Projeto_FInal_Vagrant_Docker</a>
 
 6. Se caso seja necessário ou queira apagar por completo a VM, execute "vagrant destroy".
 
-## Topologia de Rede:
+## Topologia da Rede
 
-Nesse projeto será utilizado uma VM configurada com um IP estático, essa VM contém 5 containers, cada container será configurado com a especificação pedida, ou seja:
+A tabela a seguir descreve a topologia da rede proposta para este projeto.
 
-- 1º Container configurado com um servidor DHCP
-- 2º Container com um servidor DNS
-- 3º Container hospedando um servidor apache 
-- 4º Container com um servidor FTP
-- 5º Container configurado com um servidor NFS
+| Máquina Virtual | Tipo           | Endereço IP       | Porta de Acesso | Serviços                    |
+|------------------|----------------|-------------------|-----------------|-----------------------------|
+| vmgateway        | Principal      | 192.168.56.10     | 1234 -> 22      | DHCP, DNS, FTP, NFS, Web    |
+| vmftp            | Secundária     | DHCP Assigned     | Não aplicável   | FTP                         |
+
+### Detalhes Adicionais
+
+1. **vmgateway:**
+   - Esta máquina é a máquina gateway principal.
+   - Executa vários contêineres Docker para os serviços (DHCP, DNS, FTP, NFS, Web).
+   - Possui uma interface de rede privada (`private_network`) com o IP estático `192.168.56.10`.
+   - Há um encaminhamento de porta para acessar a máquina através da porta 1234 localmente (pode ser ajustado conforme necessário).
+
+2. **vmftp:**
+   - Uma máquina separada que executa um contêiner Docker para o serviço FTP.
+   - Usa uma interface de rede privada configurada para obter um endereço IP através do DHCP.
+
+3. **Compartilhamento de Arquivos:**
+   - O diretório `/var/www/html` na máquina `vmgateway` é compartilhado com a máquina host e pode ser acessado localmente.
+
+4. **Observações:**
+   - Os detalhes específicos de configuração de cada serviço estão nos scripts de provisionamento (`dhcpd.sh`, `dns.sh`, `ftp.sh`, `nfs.sh`, `web.sh`).
+
+Certifique-se de testar a conectividade e o funcionamento de cada serviço após a inicialização das máquinas virtuais.
 
 ## Segmentação de Sub-Rede
 
-1. Serviço DHCP
-    - Sub-rede: 192.168.56.0/26
-    -   Faixa de endereços disponíveis para DHCP: 192.168.56.1 a 192.168.56.62
+A tabela a seguir detalha a segmentação de sub-rede para as máquinas virtuais neste projeto.
 
-2. Serviço DNS
-    - Sub-rede: 192.168.56.0/26
-    - Faixa de endereços disponíveis para DNS: 192.168.56.65 a 192.168.56.126
+| Máquina Virtual | Interface | Endereço IP        | Sub-rede           | Observações                             |
+|------------------|-----------|--------------------|-------------------|-----------------------------------------|
+| vmgateway        | eth0      | 192.168.56.10      | 192.168.56.0/24   | Interface privada (private_network)     |
+| vmgateway        | eth1      | -                  | -                 | Encaminhamento de porta (Port Forwarding)|
+| vmftp            | eth0      | DHCP Assigned      | -                 | Interface privada (private_network)     |
 
-3. Serviço Web Apache
-    - Sub-rede: 192.168.56.0/26
-    - Faixa de endereços disponíveis para Web: 192.168.56.129 a 192.168.56.190
+### Observações Adicionais
 
-4. Serviço DHCP
-    - Sub-rede: 192.168.56.0/26
-    - Faixa de endereços disponíveis para FTP: 192.168.56.193 a 192.168.56.254
+1. **vmgateway:**
+   - A interface `eth0` está configurada na sub-rede `192.168.56.0/24` usando o tipo `private_network`.
+   - A interface `eth1` é usada para encaminhamento de porta, permitindo acesso externo através da porta 1234.
 
-5. Serviço DHCP
-    - Sub-rede: 192.168.56.0/26
-    - Faixa de endereços disponíveis para NFS: 192.168.56.257 a 192.168.56.318
+2. **vmftp:**
+   - A interface `eth0` está configurada para obter um endereço IP via DHCP na sub-rede privada.
