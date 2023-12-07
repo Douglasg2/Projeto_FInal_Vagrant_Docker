@@ -84,7 +84,7 @@ A tabela a seguir detalha a segmentação de sub-rede para as máquinas virtuais
 
 - FTP <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/04.jpeg">
 
-- WEB <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/05.jpeg>
+- WEB <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/05.jpeg">
 
 5. Entrando na VM "vmftp"
 <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/07.jpeg">
