@@ -4,7 +4,7 @@ apt update
 apt install -y docker.io
 docker pull ustclug/ftp
 
-sudo docker run -itd --restart=always \
+docker run -itd --restart=always \
     -p 20-22:20-22 \
     -p 80:80 \
     -p 40000-40050:40000-40050 \
