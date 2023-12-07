@@ -67,6 +67,35 @@ A tabela a seguir detalha a segmentação de sub-rede para as máquinas virtuais
 | vmgateway        | eth1      | -                  | -                 | Encaminhamento de porta (Port Forwarding)|
 | vmftp            | eth0      | DHCP Assigned      | -                 | Interface privada (private_network)     |
 
+### Testes
+
+1. Vagrant UP
+<img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/01.jpeg">
+
+
+2. Entrando na VM "vmgateway"
+<img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/02.jpeg">
+
+3. Containers ativos
+<img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/11.jpeg">
+
+4. Entrando nos containers
+- DNS <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/03.jpeg">
+
+- FTP <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/04.jpeg">
+
+- WEB <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/05.jpeg>
+
+5. Entrando na VM "vmftp"
+<img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/07.jpeg">
+
+6. Containers ativos
+<img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/08.jpeg">
+
+4. Entrando nos containers
+- FTP <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/04.jpeg">
+
+
 ### Observações Adicionais
 
 1. **vmgateway:**
