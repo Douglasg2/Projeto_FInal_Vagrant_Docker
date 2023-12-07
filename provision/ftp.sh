@@ -3,9 +3,7 @@
 apt update
 apt install -y docker.io
 docker pull ustclug/ftp
-
-docker exec -it CONTAINER_ID /bin/bash -c "apt-get update && apt-get install -y ftp"
-
+    
 
 docker run -itd --restart=always \
     -p 20-22:20-22 \
