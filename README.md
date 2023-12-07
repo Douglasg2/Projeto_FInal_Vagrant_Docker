@@ -67,6 +67,15 @@ A tabela a seguir detalha a segmentação de sub-rede para as máquinas virtuais
 | vmgateway        | eth1      | -                  | -                 | Encaminhamento de porta (Port Forwarding)|
 | vmftp            | eth0      | DHCP Assigned      | -                 | Interface privada (private_network)     |
 
+### Observações Adicionais
+
+1. **vmgateway:**
+   - A interface `eth0` está configurada na sub-rede `192.168.56.0/24` usando o tipo `private_network`.
+   - A interface `eth1` é usada para encaminhamento de porta, permitindo acesso externo através da porta 1234.
+
+2. **vmftp:**
+   - A interface `eth0` está configurada para obter um endereço IP via DHCP na sub-rede privada.
+   
 ### Testes
 
 1. Vagrant UP
@@ -95,12 +104,3 @@ A tabela a seguir detalha a segmentação de sub-rede para as máquinas virtuais
 4. Entrando nos containers
 - FTP <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/04.jpeg">
 
-
-### Observações Adicionais
-
-1. **vmgateway:**
-   - A interface `eth0` está configurada na sub-rede `192.168.56.0/24` usando o tipo `private_network`.
-   - A interface `eth1` é usada para encaminhamento de porta, permitindo acesso externo através da porta 1234.
-
-2. **vmftp:**
-   - A interface `eth0` está configurada para obter um endereço IP via DHCP na sub-rede privada.
