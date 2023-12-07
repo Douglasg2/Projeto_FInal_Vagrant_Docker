@@ -82,6 +82,10 @@ A tabela a seguir detalha a segmentação de sub-rede para as máquinas virtuais
 4. Entrando nos containers
 - DNS <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/03.jpeg">
 
+- Teste DNS
+<img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/0793185bc34ff0b2a2ad6bf9aadfe791845f3458/imagens/12.jpeg">
+
+
 - FTP <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/04.jpeg">
 
 - WEB <img src="https://raw.githubusercontent.com/Douglasg2/Projeto_FInal_Vagrant_Docker/55bc095b1a32dd17a9c3852364e859182bf4ea60/imagens/05.jpeg">
